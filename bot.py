@@ -1,5 +1,9 @@
 import discord
+from keep_alive import keep_alive
+keep_alive()
+
 from discord.ext import commands
+import os
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -83,8 +87,4 @@ async def whitelist(interaction: discord.Interaction):
     else:
         await thread.send(f"❌ {interaction.user.mention} nije prošao kviz ({score}/10). Pokušaj ponovo.")
 
-
-import os
 bot.run(os.getenv("TOKEN"))
-
-
